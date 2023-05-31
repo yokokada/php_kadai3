@@ -11,13 +11,6 @@ function db_conn(){
         $db_id   = "root";           //アカウント名
         $db_pw   = "";               //パスワード：XAMPPはパスワード無し
         $db_host = "localhost"; //DBホスト
-        //localhostでなければさくらに接続する
-        if($_SERVER["HTTP_HOST"] != "localhost"){
-            $db_name = "umasaka_p_k2";   //データベース名
-            $db_id   = "umasaka";     //アカウント名
-            $db_pw   = "4050Umasaka";    //パスワード：
-            $db_host = "mysql57.umasaka.sakura.ne.jp"; //DBホスト
-            }
         return  new PDO('mysql:dbname='.$db_name.';charset=utf8;host='.$db_host, $db_id, $db_pw);
     } catch (PDOException $e) {
         exit('DB Connection Error:'.$e->getMessage());
